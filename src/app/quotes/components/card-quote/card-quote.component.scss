@@ -1,0 +1,40 @@
+:host {
+  display: grid;
+  place-items: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 580px;
+  border-radius: var(--radius);
+  background-color: var(--light-color);
+
+  @media (min-width: 400px) {
+    padding: 2rem 3rem;
+  }
+  @media (min-width: 530px) {
+    padding: 2.5rem 3.5rem;
+  }
+}
+
+blockquote {
+  margin: 0;
+  position: relative;
+  text-align: center;
+  small {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+  }
+}
+
+.quote__footer {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+  button {
+    margin-left: auto;
+    padding: 0.625rem 1.125rem;
+    border: none;
+    border-radius: calc(var(--radius) / 2);
+    color: var(--light-color);
+  }
+}

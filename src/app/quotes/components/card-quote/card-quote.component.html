@@ -1,0 +1,8 @@
+<blockquote *ngIf="quote">
+  {{ quote.quote }}
+  <small>{{ quote.author }}</small>
+</blockquote>
+<div class="quote__footer">
+  <a href="#">Twitter</a><a href="#">Tumbler</a>
+  <button (click)="showNextQuote()">Nest Quote</button>
+</div>
