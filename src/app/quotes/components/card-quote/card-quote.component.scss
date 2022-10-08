@@ -1,4 +1,8 @@
 :host {
+  display: block;
+}
+
+.quote {
   display: grid;
   place-items: center;
   gap: 4rem;
