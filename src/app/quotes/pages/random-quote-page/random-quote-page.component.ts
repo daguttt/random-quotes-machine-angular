@@ -1,13 +1,6 @@
-import {
-  AfterViewChecked,
-  AfterViewInit,
-  Component,
-  OnInit,
-} from '@angular/core';
-import { map } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 import { QuotesService } from '../../services/quotes.service';
-import { Quote } from '../../interfaces/quotes.interface';
 import { ColorThemesService } from '../../services/color-themes.service';
 
 @Component({
