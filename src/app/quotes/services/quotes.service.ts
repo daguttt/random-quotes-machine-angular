@@ -14,7 +14,7 @@ export class QuotesService {
   quotesApiUrl: string = environment.quotesApiURL;
 
   private _quotes: Quote[] = [];
-  quoteEmitter$ = new Subject<Quote>();
+  quoteEmitter = new Subject<Quote>();
 
   constructor(private http: HttpClient) {}
 
@@ -26,10 +26,10 @@ export class QuotesService {
 
   emitNextRandomQuote(): void {
     const randomQuote = getRandomElementFronAnArray(this._quotes);
-    this.quoteEmitter$.next(randomQuote);
+    this.quoteEmitter.next(randomQuote);
   }
 
   getRandomQuote(): Observable<Quote> {
-    return this.quoteEmitter$.asObservable();
+    return this.quoteEmitter.asObservable();
   }
 }
