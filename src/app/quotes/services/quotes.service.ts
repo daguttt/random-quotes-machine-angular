@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
 
-import { getRandomElementFronAnArray } from 'src/app/shared/utils/getRandomElementFromAnArray';
+import { getRandomElementFromArray } from 'src/app/shared/utils/getRandomElementFromAnArray';
 import { environment } from 'src/environments/environment';
 
 import { Quote, Quotes } from '../interfaces/quotes.interface';
@@ -25,7 +25,7 @@ export class QuotesService {
   }
 
   emitNextRandomQuote(): void {
-    const randomQuote = getRandomElementFronAnArray(this._quotes);
+    const randomQuote = getRandomElementFromArray(this._quotes);
     this.quoteEmitter.next(randomQuote);
   }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { getRandomElementFronAnArray } from 'src/app/shared/utils/getRandomElementFromAnArray';
+import { getRandomElementFromArray } from 'src/app/shared/utils/getRandomElementFromAnArray';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,7 @@ export class ColorThemesService {
     'rgb(64, 166, 154)',
   ];
   randomColorEmitter = new BehaviorSubject<string>(
-    getRandomElementFronAnArray(this._rgbColorThemes)
+    getRandomElementFromArray(this._rgbColorThemes)
   );
 
   constructor() {}
@@ -37,7 +37,7 @@ export class ColorThemesService {
   }
 
   emitNextRandomRGBColor(): void {
-    const randomColor = getRandomElementFronAnArray(this._rgbColorThemes);
+    const randomColor = getRandomElementFromArray(this._rgbColorThemes);
     this.randomColorEmitter.next(randomColor);
   }
 }
