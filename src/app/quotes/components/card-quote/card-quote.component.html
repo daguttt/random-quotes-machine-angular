@@ -1,5 +1,9 @@
 <article class="quote">
-  <blockquote *ngIf="quote" [ngStyle]="{ color: colorTheme }">
+  <blockquote
+    *ngIf="quote$ | async as quote"
+    [ngStyle]="{ color: colorTheme$ | async }"
+  >
+    <!-- Quote Icon -->
     <svg
       stroke="currentColor"
       fill="currentColor"
@@ -17,13 +21,14 @@
     <small>{{ quote.author }}</small>
   </blockquote>
   <div class="quote__footer">
+    <!-- Twitter Icon -->
     <a href="#">
       <svg
         stroke="currentColor"
         fill="currentColor"
         stroke-width="0"
         viewBox="0 0 448 512"
-        [ngStyle]="{ color: colorTheme }"
+        [ngStyle]="{ color: colorTheme$ | async }"
         height="1em"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +38,14 @@
         ></path>
       </svg>
     </a>
+    <!-- Tumbler Icon -->
     <a href="#">
       <svg
         stroke="currentColor"
         fill="currentColor"
         stroke-width="0"
         viewBox="0 0 448 512"
-        [ngStyle]="{ color: colorTheme }"
+        [ngStyle]="{ color: colorTheme$ | async }"
         height="1em"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +57,7 @@
     </a>
     <button
       (click)="showNextQuote()"
-      [ngStyle]="{ 'background-color': colorTheme }"
+      [ngStyle]="{ 'background-color': colorTheme$ | async }"
     >
       Next Quote
     </button>

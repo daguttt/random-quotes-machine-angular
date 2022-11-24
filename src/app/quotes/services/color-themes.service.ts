@@ -26,18 +26,19 @@ export class ColorThemesService {
     'rgb(171, 122, 124)',
     'rgb(64, 166, 154)',
   ];
-  randomColorEmitter = new BehaviorSubject<string>(
+  _randomColor = new BehaviorSubject<string>(
     getRandomElementFromArray(this._rgbColorThemes)
   );
+  randomColor$ = this._randomColor.asObservable();
 
   constructor() {}
 
   getRandomRGBColor(): BehaviorSubject<string> {
-    return this.randomColorEmitter;
+    return this._randomColor;
   }
 
   emitNextRandomRGBColor(): void {
     const randomColor = getRandomElementFromArray(this._rgbColorThemes);
-    this.randomColorEmitter.next(randomColor);
+    this._randomColor.next(randomColor);
   }
 }

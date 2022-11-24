@@ -11,10 +11,11 @@ import { Quote, Quotes } from '../interfaces/quotes.interface';
   providedIn: 'root',
 })
 export class QuotesService {
-  quotesApiUrl: string = environment.quotesApiURL;
-
+  private _randomQuote = new Subject<Quote>();
   private _quotes: Quote[] = [];
-  quoteEmitter = new Subject<Quote>();
+
+  quotesApiUrl: string = environment.quotesApiURL;
+  randomQuote$ = this._randomQuote.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -26,10 +27,6 @@ export class QuotesService {
 
   emitNextRandomQuote(): void {
     const randomQuote = getRandomElementFromArray(this._quotes);
-    this.quoteEmitter.next(randomQuote);
-  }
-
-  getRandomQuote(): Observable<Quote> {
-    return this.quoteEmitter.asObservable();
+    this._randomQuote.next(randomQuote);
   }
 }
